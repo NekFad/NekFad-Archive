@@ -19,6 +19,8 @@
 
 Mục tiêu là giúp việc **phân loại – tải lại – chia sẻ save** của server NekFad **nhanh, gọn và rõ ràng**.
 
+Truy cập ngay tại: https://nekfad.github.io/NekFad-Archive/
+
 ---
 
 ## ✨ Điểm nổi bật
