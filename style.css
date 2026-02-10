@@ -1,0 +1,230 @@
+@font-face {
+  font-family: 'Minecraft';
+  src: url('fonts/Minecraft.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #eee;
+  font-family: 'Minecraft', monospace;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  margin: 16px 0;
+  font-size: 20px;
+  color: #7cff7c;
+  text-shadow: 0 2px #000;
+}
+
+.container {
+  max-width: 760px;
+  margin: auto;
+  padding: 12px;
+}
+
+/* NOTE */
+.note {
+  max-width: 760px;
+  margin: 12px auto;
+  padding: 14px;
+  background: #2a2a2a;
+  border-radius: 10px;
+  border: 2px solid #1e1e1e;
+}
+
+.note h2 {
+  margin-top: 0;
+  color: #7cff7c;
+  font-size: 16px;
+}
+
+.note p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* PROJECT */
+.project {
+  background: #3a3a3a;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.project-header {
+  padding: 14px;
+  font-size: 16px;
+  background: linear-gradient(#4a4a4a, #333);
+}
+
+/* ANIMATION */
+.project-content,
+.season-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.35s ease;
+}
+
+.project-content.open,
+.season-content.open {
+  max-height: 420px;          /* 👈 chiều cao tối đa */
+  overflow-y: auto;           /* 👈 cho phép kéo xuống */
+  opacity: 1;
+}
+}
+
+/* SEASON */
+.season {
+  margin: 8px 0;
+}
+
+.season-header {
+  margin: 6px 10px;
+  padding: 10px;
+  background: #2b2b2b;
+  border-radius: 8px;
+}
+
+/* ITEM ROW */
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 24px;
+  padding: 10px;
+  background: #1f1f1f;
+  border-radius: 8px;
+}
+
+.item-label {
+  font-size: 13px;
+}
+
+/* DOWNLOAD BUTTON */
+.download-btn {
+  padding: 8px 12px;
+  background: linear-gradient(#6fbf6f, #4caf50);
+  color: #0f2f0f;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.download-btn:hover {
+  box-shadow: 0 0 8px #4caf50;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .item-row {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .download-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* lớp tối để chữ dễ đọc */
+.bg-blur::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.falling-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.falling-item {
+  position: absolute;
+  top: -50px;
+  width: 24px;
+  opacity: 0.8;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) translateX(var(--drift));
+    opacity: 0;
+  }
+}
+
+/* ITEM TEXT + DESCRIPTION */
+.item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-desc {
+  font-size: 11px;
+  color: #b5b5b5;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+/* SCROLLBAR STYLE */
+.project-content.open::-webkit-scrollbar,
+.season-content.open::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-content.open::-webkit-scrollbar-track,
+.season-content.open::-webkit-scrollbar-track {
+  background: #1e1e1e;
+  border-radius: 6px;
+}
+
+.project-content.open::-webkit-scrollbar-thumb,
+.season-content.open::-webkit-scrollbar-thumb {
+  background: #4caf50;
+  border-radius: 6px;
+}
+
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(14px);
+  transform: scale(1.15);
+  transition: opacity 1.2s ease;
+  z-index: -2;
+}
+
+.bg-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.bg-a {
+  opacity: 1;
+}
+
+.bg-b {
+  opacity: 0;
+}
